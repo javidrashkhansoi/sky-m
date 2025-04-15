@@ -1,0 +1,11 @@
+<li class="services-list__item @@if (modifier) { services-list__item--@@modifier }">
+  <a class="services-list__link" href="#" aria-label="@@label">
+    <span class="services-list__inner responsive-media" aria-hidden="true">
+      <span class="services-list__label">@@label</span>
+      @@if (text) {
+      <span class="services-list__text">Узнать цену</span>
+      }
+      <img src="@img/images/pages/index/services/@@image.jpg" alt="" loading="lazy">
+    </span>
+  </a>
+</li>

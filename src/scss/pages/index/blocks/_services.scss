@@ -1,0 +1,143 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.services {
+  padding-block: functions.responsive-value(194, 50) functions.responsive-value(204, 50);
+
+  // .services__container
+  &__container {
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .services__title
+  &__title {
+    margin-block-end: functions.responsive-value(36, 30);
+    line-height: 1.72;
+  }
+
+  // .services__list
+  &__list {
+    margin-block-end: functions.responsive-value(103, 30);
+  }
+
+  // .services__button
+  &__button {
+    margin-inline: auto;
+  }
+}
+
+.services-list {
+  display: grid;
+  grid-auto-flow: row dense;
+  gap: functions.responsive-value(30, 15);
+  color: variables.$color-white;
+
+  @media (min-width: #{600 + 0.1px}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: #{1024 + 0.1px}) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  // .services-list__item
+  &__item {
+    @media (min-width: #{1024 + 0.1px}) {
+      grid-column: span 2;
+    }
+
+    .services-list:is(
+        :not(:has(&--full)):has(&:nth-child(odd):last-child),
+        :has(&--full:nth-child(odd) + &:not(&--full)):not(:has(&:nth-child(odd):last-child)),
+        :has(&--full:nth-child(even) + &:not(&--full)):has(&:nth-child(odd):last-child)
+      )
+      &:last-child {
+      @media (min-width: #{600 + 0.1px}) {
+        @media (max-width: 1024px) {
+          grid-column: span 2;
+        }
+      }
+    }
+
+    // .services-list__item--full
+    &--full {
+      @media (min-width: #{600 + 0.1px}) {
+        grid-column: span 2;
+      }
+
+      @media (min-width: #{1024 + 0.1px}) {
+        grid-column: span 6;
+      }
+    }
+
+    // .services-list__item--half
+    &--half {
+      @media (min-width: #{1024 + 0.1px}) {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  // .services-list__link
+  &__link {
+    display: block;
+
+    &:focus-visible {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    @include mixins.hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // .services-list__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: functions.responsive-value(30, 10);
+    min-block-size: functions.responsive-value(344, 200);
+    padding-block: functions.responsive-value(30, 10);
+    padding-inline: functions.responsive-value(37, 15);
+
+    &:not(:has(.services-list__text)) {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    img {
+      @include mixins.prefers-reduced-motion {
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+      }
+    }
+  }
+
+  // .services-list__label
+  &__label {
+    font-size: functions.responsive-value(34, 20);
+
+    &:has(~ .services-list__text) {
+      max-inline-size: 330px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  // .services-list__text
+  &__text {
+    font-size: functions.responsive-value(19, 13);
+    line-height: 1.6;
+  }
+}

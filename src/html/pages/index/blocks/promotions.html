@@ -1,0 +1,11 @@
+<section class="promotions" id="section-promotions" aria-labelledby="title-promotions">
+  <div class="promotions__container container">
+    <div class="promotions__header">
+      <div class="promotions__subtitle subtitle">Акции</div>
+      <h2 class="promotions__title h2 h2--bold h2--small" id="title-promotions">Спецпредложения</h2>
+    </div>
+    <ul class="promotions-list">
+      @@loop("promotions-blocks/list-item.html", "json/promotions/list-item.json")
+    </ul>
+  </div>
+</section>

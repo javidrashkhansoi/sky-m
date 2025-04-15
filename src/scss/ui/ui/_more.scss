@@ -1,0 +1,37 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.more {
+  display: flex;
+  align-items: center;
+  gap: calc(9 / 21 * 1em);
+  inline-size: fit-content;
+  font-size: functions.responsive-value(21, 16);
+  line-height: 1.47;
+  color: variables.$color-981920;
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-hover;
+  }
+
+  // .more__text
+  &__text {
+  }
+
+  // .more__icon
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    inline-size: calc(#{functions.responsive-value(21, 16)} * 1.47 - 2.86px);
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+  }
+}

@@ -1,0 +1,212 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.contacts {
+  padding-block-start: functions.responsive-value(143, 50);
+
+  // .contacts__container
+  &__container {
+    @media (max-width: 768px) {
+      .contacts__inner & {
+        display: none;
+      }
+    }
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .contacts__header
+  &__header {
+    text-align: center;
+
+    @media (max-width: 768px) {
+      margin-block-end: 30px;
+    }
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .contacts__subtitle
+  &__subtitle {
+    margin-block-end: 4px;
+  }
+
+  // .contacts__title
+  &__title {
+    line-height: 1.74;
+  }
+
+  // .contacts__inner
+  &__inner {
+    position: relative;
+    isolation: isolate;
+    margin-block-start: 30px;
+
+    @media (min-width: #{768 + 0.1px}) {
+      padding-block: functions.responsive-value(38, 30) functions.responsive-value(74, 30);
+    }
+
+    @media (max-width: 768px) {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  // .contacts__map
+  &__map {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  // .contacts__address
+  &__address {
+    margin-inline-start: auto;
+
+    @media (max-width: 768px) {
+      margin-inline-end: auto;
+    }
+  }
+}
+
+.address {
+  max-inline-size: 370px;
+  padding-block: functions.responsive-value(28, 20) functions.responsive-value(33, 20);
+  padding-inline: functions.responsive-value(30, 20);
+  background-color: variables.$color-white;
+  border-radius: 3px;
+  color: variables.$color-black;
+
+  @media (min-width: #{768 + 0.1px}) {
+    .contacts__container > & {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contacts__inner & {
+      display: none;
+    }
+  }
+
+  > *:last-child {
+    margin-block-end: 0;
+  }
+
+  // .address__logo
+  &__logo {
+    inline-size: 140px;
+    aspect-ratio: 140 / 31.38;
+    margin-block-end: 19px;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .address__label
+  &__label {
+    margin-block-end: 30px;
+    font-family: variables.$font-inter;
+    font-size: functions.responsive-value(21, 16);
+    line-height: 1.14;
+    text-transform: uppercase;
+  }
+
+  // .address__numbers
+  &__numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: functions.responsive-value(15, 10);
+    margin-block-end: 11px;
+  }
+
+  // .address__number
+  &__number {
+    font-family: variables.$font-inter;
+    font-size: functions.responsive-value(16, 13);
+    white-space: nowrap;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .address__operator
+  &__operator {
+    font-family: variables.$font-mazda-type-cyrillic;
+    font-size: functions.responsive-value(14, 10);
+  }
+
+  // .address__infos
+  &__infos {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: functions.responsive-value(12, 10);
+    margin-block-end: 29px;
+  }
+
+  // .address__info
+  &__info {
+    font-size: functions.responsive-value(13, 10);
+    line-height: 1.03;
+
+    &[href] {
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+
+  // .address__button
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    min-block-size: calc(50 / 14 * 1em);
+    margin-block-end: 22px;
+    padding-block: 5px;
+    padding-inline: calc(30 / 14 * 1em);
+    font-size: functions.responsive-value(14, 12);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: variables.$color-white;
+    border: 2px solid variables.$color-e83c3c;
+    border-radius: calc(10 / 14 * 1em);
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color, background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-white;
+      background-color: variables.$color-e83c3c;
+    }
+  }
+
+  // .address__text
+  &__text {
+    max-inline-size: 150px;
+    font-size: 8px;
+    line-height: 1.12;
+  }
+}

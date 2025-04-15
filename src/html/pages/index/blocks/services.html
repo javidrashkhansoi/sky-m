@@ -1,0 +1,9 @@
+<section class="services" id="section-services" aria-labelledby="title-services">
+  <div class="services__container container">
+    <h2 class="services__title h2 h2--bold" id="title-services">Наши услуги</h2>
+    <ul class="services__list services-list">
+      @@loop("services-blocks/list-item.html", "json/services/list-item.json")
+    </ul>
+    <button class="services__button button">Записаться на сервис</button>
+  </div>
+</section>

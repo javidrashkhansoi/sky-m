@@ -1,0 +1,109 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.promotions {
+  padding-block: functions.responsive-value(189, 50) functions.responsive-value(143, 50);
+
+  // .promotions__container
+  &__container {
+  }
+
+  // .promotions__header
+  &__header {
+    margin-block-end: functions.responsive-value(62, 30);
+    text-align: center;
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .promotions__subtitle
+  &__subtitle {
+    margin-block-end: 5px;
+  }
+
+  // .promotions__title
+  &__title {
+    line-height: 1.74;
+  }
+}
+
+.promotions-list {
+  display: grid;
+  gap: functions.responsive-value(45, 15);
+
+  @media (min-width: #{768 + 0.1px}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: #{1200 + 0.1px}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // .promotions-list__item
+  &__item {
+  }
+}
+
+.promotion-card {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  background-color: variables.$color-white;
+  box-shadow: 0 1px 3px 0 rgba(16, 24, 40, 0.04);
+  border: 1.42px solid variables.$color-eaebf0;
+  border-radius: 14px;
+  overflow: hidden;
+
+  // .promotion-card__image
+  &__image {
+    flex: 0 0 auto;
+    aspect-ratio: 559.79 / 351.46;
+    font-size: 0;
+  }
+
+  // .promotion-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding-block: functions.responsive-value(34, 20);
+    padding-inline: functions.responsive-value(45, 20);
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .promotion-card__title
+  &__title {
+    margin-block-end: functions.responsive-value(23, 15);
+    font-size: functions.responsive-value(34, 20);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: variables.$color-272d37;
+
+    a {
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+
+  // .promotion-card__text
+  &__text {
+    flex: 1 1 auto;
+    margin-block-end: functions.responsive-value(34, 20);
+    font-size: functions.responsive-value(22, 16);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: variables.$color-5f6d7e;
+  }
+}

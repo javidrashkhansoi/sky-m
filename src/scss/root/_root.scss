@@ -1,0 +1,9 @@
+@use "../functions/functions";
+
+:root {
+  --header-height: #{functions.responsive-value(98, 507)};
+
+  @media (min-width: #{1024 + 0.1px}) {
+    --header-height: #{calc(44px + functions.responsive-value(98, 507))};
+  }
+}

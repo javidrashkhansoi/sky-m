@@ -1,0 +1,67 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+@property --button-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #841319;
+}
+
+@property --button-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #da2c36;
+}
+
+.button {
+  --outline-color: #{variables.$color-1b1b1b};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(19 / 15 * 1em);
+  min-block-size: calc(64 / 15 * 1em);
+  padding-block: 5px;
+  padding-inline: calc(34 / 15 * 1em);
+  font-size: functions.responsive-value(15, 13);
+  text-transform: uppercase;
+  text-align: center;
+  color: variables.$color-white;
+  background-image: linear-gradient(177deg, var(--button-color-1, #841319) 0%, var(--button-color-2, #da2c36) 100%);
+  border: 2px solid rgba($color: variables.$color-92171e, $alpha: 0);
+  border-radius: calc(13 / 15 * 1em);
+
+  // .button--dark
+  &--dark {
+    background-image: none;
+    background-color: variables.$color-151517;
+
+    @include mixins.hover {
+      background-color: variables.$color-f2f2f2;
+    }
+  }
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: --button-color-1, --button-color-2, color, background-color, border-color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    --button-color-1: #{variables.$color-f2f2f2};
+    --button-color-2: #{variables.$color-f2f2f2};
+
+    color: variables.$color-1b1b1b;
+    border-color: variables.$color-92171e;
+  }
+
+  // .button__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+  }
+
+  // .button__text
+  &__text {
+  }
+}

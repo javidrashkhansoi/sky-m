@@ -1,0 +1,46 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.up {
+  position: fixed;
+  inset-block-end: 15px;
+  inset-inline-end: calc(15px + var(--scrollbar-width, 0px));
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 38px;
+  aspect-ratio: 1 / 1;
+  font-size: 0;
+  color: variables.$color-1b1b1b;
+  background-color: variables.$color-f2f2f2;
+  mix-blend-mode: difference;
+  backdrop-filter: blur(5px);
+  transform: translateZ(0);
+  border-radius: 5px;
+
+  html:not(.scrolled) & {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:focus-visible {
+    color: variables.$color-f2f2f2;
+    background-color: variables.$color-92171e;
+  }
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color, background-color, opacity, visibility;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-f2f2f2;
+    background-color: variables.$color-92171e;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+  }
+}

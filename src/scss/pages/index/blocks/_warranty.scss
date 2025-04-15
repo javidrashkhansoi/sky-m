@@ -1,0 +1,52 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.warranty {
+  position: relative;
+  isolation: isolate;
+  padding-block: functions.responsive-value(211, 100);
+  color: variables.$color-white;
+
+  // .warranty__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: functions.responsive-value(45, 30);
+  }
+
+  // .warranty__label
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    inline-size: min-content;
+    text-transform: uppercase;
+  }
+
+  // .warranty__year
+  &__year {
+    font-family: variables.$font-inter;
+    font-weight: 700;
+    font-size: functions.responsive-value(64, 50);
+  }
+
+  // .warranty__text
+  &__text {
+    font-size: functions.responsive-value(20, 16);
+    line-height: 1.2;
+  }
+
+  // .warranty__description
+  &__description {
+    line-height: 1.12;
+  }
+
+  // .warranty__background
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    font-size: 0;
+  }
+}

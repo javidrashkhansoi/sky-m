@@ -1,0 +1,24 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.h2 {
+  font-size: functions.responsive-value(48, 25);
+  text-transform: uppercase;
+  color: variables.$color-black;
+
+  // .h2--bold
+  &--bold {
+    font-weight: 700;
+  }
+
+  // .h2--light
+  &--light {
+    color: variables.$color-white;
+  }
+
+  // .h2--small
+  &--small {
+    font-size: functions.responsive-value(32, 20);
+  }
+}

@@ -1,0 +1,41 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+
+  // .socials__label
+  &__label {
+    font-size: 22px;
+    line-height: 1.54;
+    text-transform: uppercase;
+    color: variables.$color-1b1b1b;
+  }
+
+  // .socials__inner
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  // .socials__link
+  &__link {
+    flex: 0 0 auto;
+    font-size: 0;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+}

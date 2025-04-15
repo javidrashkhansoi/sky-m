@@ -1,0 +1,80 @@
+[
+  {
+    "modifier": "full",
+    "label": "Авто из Америки",
+    "text": false,
+    "image": 1
+  },
+  {
+    "modifier": "full",
+    "label": "Плановое техническое обслуживание",
+    "text": false,
+    "image": 2
+  },
+  {
+    "modifier": false,
+    "label": "Диагностика и&nbsp;ремонт подвески",
+    "text": true,
+    "image": 3
+  },
+  {
+    "modifier": false,
+    "label": "Ремонт тормозной системы",
+    "text": true,
+    "image": 4
+  },
+  {
+    "modifier": false,
+    "label": "Диагностика и&nbsp;ремонт автоэлектрики",
+    "text": true,
+    "image": 5
+  },
+  {
+    "modifier": false,
+    "label": "Шиномонтаж",
+    "text": true,
+    "image": 6
+  },
+  {
+    "modifier": false,
+    "label": "Развал-схождение",
+    "text": true,
+    "image": 7
+  },
+  {
+    "modifier": false,
+    "label": "Диагностика и&nbsp;заправка системы кондиционирования",
+    "text": true,
+    "image": 8
+  },
+  {
+    "modifier": false,
+    "label": "Промывка топливной системы",
+    "text": true,
+    "image": 9
+  },
+  {
+    "modifier": false,
+    "label": "Ремонт двигателя",
+    "text": true,
+    "image": 10
+  },
+  {
+    "modifier": false,
+    "label": "Осмотр автомобиля перед покупкой",
+    "text": true,
+    "image": 11
+  },
+  {
+    "modifier": "half",
+    "label": "Установка камер заднего вида",
+    "text": true,
+    "image": 12
+  },
+  {
+    "modifier": "half",
+    "label": "Установка сигнализации",
+    "text": true,
+    "image": 13
+  }
+]

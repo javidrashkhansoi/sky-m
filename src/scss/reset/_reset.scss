@@ -1,0 +1,217 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(html, body) {
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  inline-size: 100%;
+  block-size: 100%;
+  font-size: 16px;
+  line-height: 1;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+:where(ul, ol) {
+  list-style: none;
+}
+
+:where(input, select, textarea, button) {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-variant-numeric: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  background: none;
+}
+
+// :where(input, textarea) {
+//   display: block;
+//   inline-size: 100%;
+//   caret-color: currentColor;
+// }
+
+:where(abbr, :any-link) {
+  text-decoration: none;
+}
+
+:where(:focus, :active) {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+// ::placeholder {
+//   color: inherit;
+//   opacity: 1;
+// }
+
+:where(html) {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+    scroll-behavior: smooth;
+  }
+}
+
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+// }
+
+// th {
+//   font-weight: inherit;
+// }
+
+:where(a) {
+  text-decoration: none;
+  color: inherit;
+}
+
+// fieldset {
+//   min-inline-size: auto;
+// }
+
+// label {
+//   cursor: pointer;
+// }
+
+// input {
+//   &[type="number"] {
+//     appearance: none;
+//     -moz-appearance: textfield;
+
+//     &::-webkit-outer-spin-button,
+//     &::-webkit-inner-spin-button {
+//       appearance: none;
+//       margin: 0;
+//     }
+//   }
+
+//   &[type="search"] {
+//     &::-webkit-search-decoration,
+//     &::-webkit-search-cancel-button,
+//     &::-webkit-search-results-button,
+//     &::-webkit-search-results-decoration {
+//       appearance: none;
+//     }
+//   }
+// }
+
+// select {
+//   display: block;
+//   text-overflow: ellipsis;
+//   cursor: pointer;
+// }
+
+// textarea {
+//   resize: vertical;
+// }
+
+:where(button) {
+  display: inline-flex;
+  align-items: center;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+:where(address) {
+  font-style: inherit;
+}
+
+:where(img) {
+  vertical-align: top;
+}
+
+// dialog {
+//   position: fixed;
+//   inset: 0;
+//   z-index: 1000;
+//   display: flex;
+//   flex-direction: column;
+//   max-inline-size: none;
+//   block-size: 100%;
+//   max-block-size: none;
+//   inline-size: 100%;
+//   color: inherit;
+//   background: none;
+
+//   &:not([open]) {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+
+//   @media (prefers-reduced-motion: no-preference) {
+//     transition-property: opacity, visibility;
+//     transition-duration: 0.3s;
+//   }
+
+//   &::backdrop {
+//     background: none;
+//   }
+// }
+
+// q {
+//   &::before,
+//   &::after {
+//     content: none;
+//   }
+// }
+
+// cite {
+//   font-style: inherit;
+// }
+
+// mark {
+//   color: inherit;
+//   background: none;
+// }
+
+:where(svg) {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+:where(:root) {
+  color: #000;
+}
+
+// :is(input, select, textarea):focus-visible {
+//   outline: none;
+// }
+
+:where(:focus-visible) {
+  outline: 2px solid var(--outline-color, currentColor);
+  outline-offset: 2px;
+
+  @media (hover: hover) {
+    &:hover {
+      outline: none;
+    }
+  }
+}
+
+:where(:disabled) {
+  cursor: default;
+}
