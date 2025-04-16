@@ -10,7 +10,7 @@
   min-block-size: 100svh;
   padding-block: calc(#{variables.$header-height} + var(--hero-padding-top, 31px)) 31px;
 
-  @media (min-height: #{750 + 0.1px}) {
+  @media (min-height: #{700 + 0.1px}) {
     --hero-padding-top: (145 / 1080 * 100svh);
   }
 
@@ -33,10 +33,6 @@
     display: flex;
     flex-direction: column;
     gap: functions.responsive-value(42, 31);
-
-    @media (min-width: #{1024 + 0.1px}) {
-      max-inline-size: 50vw;
-    }
   }
 
   // .hero__title
@@ -57,6 +53,10 @@
     }
 
     img {
+      @media (min-width: #{1024 + 0.1px}) {
+        object-position: calc(50% + #{functions.responsive-value(0, 200, 1600, 1024, "fixed-both", "px")}) 50%;
+      }
+
       @media (max-width: 1024px) {
         object-fit: contain;
       }
@@ -67,19 +67,11 @@
   &__buttons {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 25px;
 
-    @media (min-width: #{1024 + 0.1px}) {
-      max-inline-size: 50vw;
-    }
-
-    @media (min-width: #{1200 + 0.1px}) {
-      @media (max-width: 1600px) {
-        flex-direction: column;
-        align-items: start;
-      }
+    @media (max-width: 1024px) {
+      flex-wrap: wrap;
     }
   }
 
@@ -104,28 +96,32 @@
 }
 
 .hero-advantages {
+  --gap: #{functions.responsive-value(110, 31, 1920, 1024, "fixed-both", "px")};
+
   display: grid;
   align-items: start;
   justify-content: space-between;
   row-gap: 31px;
-  column-gap: functions.responsive-value(110, 31);
+  column-gap: var(--gap);
 
   @media (min-width: #{768 + 0.1px}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 1920px) {
+  @media (min-width: #{1024 + 0.1px}) {
     display: flex;
   }
 
   // .hero-advantages__item
   &__item {
-    @media (min-width: 1920px) {
-      &:not(:last-child) {
-        display: flex;
-        align-items: center;
-        gap: functions.responsive-value(110, 31);
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
 
+    @media (min-width: #{1024 + 0.1px}) {
+      min-block-size: 102px;
+
+      &:not(:last-child) {
         &::after {
           content: "";
           flex: 0 0 auto;
@@ -148,24 +144,24 @@
   // .hero-advantages__label
   &__label {
     margin-block-end: 8px;
-    font-size: functions.responsive-value(19, 16);
+    font-size: functions.responsive-value(19, 15, 1920, 1024, "fixed-both", "px");
     line-height: 1.55;
     text-transform: uppercase;
     color: variables.$color-black;
 
-    @media (min-width: 1920px) {
+    @media (min-width: #{1024 + 0.1px}) {
       white-space: nowrap;
     }
   }
 
   // .hero-advantages__text
   &__text {
-    font-size: functions.responsive-value(17, 13);
+    font-size: functions.responsive-value(17, 13, 1920, 1024, "fixed-both", "px");
     line-height: 1.39;
     color: variables.$color-404040;
 
     br {
-      @media (max-width: 1920px) {
+      @media (max-width: 1024px) {
         display: none;
       }
     }
